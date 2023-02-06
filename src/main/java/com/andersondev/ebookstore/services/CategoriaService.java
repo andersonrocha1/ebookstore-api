@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.andersondev.ebookstore.domain.Categoria;
 import com.andersondev.ebookstore.repositories.CategoriaRepository;
+import com.andersondev.ebookstore.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class CategoriaService {
@@ -24,7 +25,7 @@ public class CategoriaService {
 	public Categoria findById(Long id) {
 		
 	  Optional<Categoria> obj = repository.findById(id);
-	  return obj.get();
+	  return obj.orElseThrow(() -> new ResourceNotFoundException("Objeto não encontrado"));
 	  
 	}
 
