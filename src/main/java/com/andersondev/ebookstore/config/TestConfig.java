@@ -13,7 +13,7 @@ import com.andersondev.ebookstore.repositories.CategoriaRepository;
 import com.andersondev.ebookstore.repositories.LivroRepository;
 
 @Configuration
-@Profile("test")
+@Profile("dev")
 public class TestConfig implements CommandLineRunner {
 	
 	@Autowired
