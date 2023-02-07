@@ -44,6 +44,7 @@ public class Livro implements Serializable {
 		this.descricao = descricao;
 		this.texto = texto;
 		this.categoria = categoria;
+		
 	}
 
 	public Long getId() {
