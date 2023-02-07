@@ -34,17 +34,24 @@ public class CategoriaService {
 		return repository.save(obj);
 
 	}
-	
+
 	public Categoria update(Categoria obj) {
 		Categoria newObj = findById(obj.getId());
 		updateData(newObj, obj);
 		return repository.save(newObj);
 	}
-	
+
 	private void updateData(Categoria newObj, Categoria obj) {
-		
+
 		newObj.setNome(obj.getNome());
-		newObj.setDescricao(obj.getDescricao());		
+		newObj.setDescricao(obj.getDescricao());
+	}
+
+	public void delete(Long id) {
+		
+		findById(id);
+		repository.deleteById(id);
+
 	}
 
 	public Categoria fromDTO(CategoriaDTO objDTO) {
@@ -52,7 +59,5 @@ public class CategoriaService {
 		return new Categoria(objDTO.getId(), objDTO.getNome(), objDTO.getDescricao());
 
 	}
-
-	
 
 }
