@@ -10,7 +10,7 @@ public class LivroDTO implements Serializable {
 	
 	private Long id;
 	private String titulo;
-	private String nome_autor;
+	
 
 
 	public LivroDTO() {
@@ -22,7 +22,7 @@ public class LivroDTO implements Serializable {
 	
 		id = obj.getId();
 		titulo = obj.getTitulo();
-		nome_autor = obj.getNome_autor();
+		
 		
 	}
 
@@ -45,14 +45,5 @@ public class LivroDTO implements Serializable {
 		this.titulo = titulo;
 	}
 	
-	public String getNome_autor() {
-		return nome_autor;
-	}
-
-
-	public void setNome_autor(String nome_autor) {
-		this.nome_autor = nome_autor;
-	}
-
 
 }
