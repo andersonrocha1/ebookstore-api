@@ -3,6 +3,8 @@ package com.andersondev.ebookstore.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.hibernate.validator.constraints.Length;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
@@ -12,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "tb_livro")
@@ -22,9 +25,21 @@ public class Livro implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotEmpty(message = "Campo Título, não pode ser vazio:")
+	@Length(min = 5, max = 50, message = "Título, precisa possuir entre 5 a 50 caracteres")
 	private String titulo;
+	
+	@NotEmpty(message = "Campo Autor, não pode ser vazio:")
+	@Length(min = 5, max = 100, message = "Autor, precisa possuir entre 5 a 100 caracteres")
 	private String nome_autor;
+	
+	@NotEmpty(message = "Campo Descrição, não pode ser vazio:")
+	@Length(min = 10, max = 100, message = "Descrição, precisa possuir entre 5 a 100 caracteres")
 	private String descricao;
+	
+	@NotEmpty(message = "Campo Texto, não pode ser vazio:")
+	@Length(min = 16, max = 2000000, message = "Texto, precisa possuir entre 16 a 2.000.000 de caracteres")
 	private String texto;
 	
 	@JsonIgnore

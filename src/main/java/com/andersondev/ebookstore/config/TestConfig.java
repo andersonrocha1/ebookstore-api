@@ -23,7 +23,7 @@ public class TestConfig implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		
+/*
 		Categoria cat1 = new Categoria(null, "Informática", "Livros relacionados à tecnologia");
 		Categoria cat2 = new Categoria(null, "Fantasia", "Livros sobre lendas e fantasia");
 		Categoria cat3 = new Categoria(null, "Ficçao Cientifica", "Livros sobre ficção");
@@ -45,7 +45,8 @@ public class TestConfig implements CommandLineRunner {
 		
 		this.categoriaRepository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4));
 		this.livroRepository.saveAll(Arrays.asList(liv1, liv2, liv3, liv4));
-
+*/
 	}
 
 }
+

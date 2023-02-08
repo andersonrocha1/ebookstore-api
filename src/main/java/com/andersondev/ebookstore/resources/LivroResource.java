@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -19,10 +20,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.andersondev.ebookstore.domain.Livro;
-import com.andersondev.ebookstore.dto.CategoriaDTO;
 import com.andersondev.ebookstore.dto.LivroDTO;
 import com.andersondev.ebookstore.services.LivroService;
 
+import jakarta.validation.Valid;
+
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/livros")
 public class LivroResource {
@@ -48,19 +51,19 @@ public class LivroResource {
 	}
 	
 	@PutMapping(value = "/{id}") //Quando queira atualizar tudo
-	public ResponseEntity<Livro> update(@PathVariable Long id, @RequestBody Livro obj) {
+	public ResponseEntity<Livro> update(@PathVariable Long id, @Valid @RequestBody Livro obj) {
 		Livro newObj = service.update(id, obj);
 		return ResponseEntity.ok().body(newObj);
 	}
 	
 	@PatchMapping(value = "/{id}")// Quando queria atualizar apenas um atributo
-	public ResponseEntity<Livro> updatePath(@PathVariable Long id, @RequestBody Livro obj) {
+	public ResponseEntity<Livro> updatePath(@PathVariable Long id, @Valid @RequestBody Livro obj) {
 		Livro newObj = service.update(id, obj);
 		return ResponseEntity.ok().body(newObj);
 	}
 	
 	@PostMapping
-	public ResponseEntity<Livro> insert(@RequestParam(value = "categoria", defaultValue = "0") Long cat_id,
+	public ResponseEntity<Livro> insert(@RequestParam(value = "categoria", defaultValue = "0") Long cat_id, @Valid
 			@RequestBody Livro obj){
 		
 		Livro newObj = service.insert(cat_id, obj);
