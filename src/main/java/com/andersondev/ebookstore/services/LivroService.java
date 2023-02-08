@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.andersondev.ebookstore.domain.Categoria;
 import com.andersondev.ebookstore.domain.Livro;
 import com.andersondev.ebookstore.repositories.LivroRepository;
 import com.andersondev.ebookstore.services.exceptions.ResourceNotFoundException;
@@ -46,6 +47,15 @@ public class LivroService {
 		newObj.setNome_autor(obj.getNome_autor());
 		newObj.setDescricao(obj.getDescricao());
 		newObj.setTexto(obj.getTexto());		
+	}
+
+	public Livro insert(Long cat_id, Livro obj) {
+		
+		obj.setId(null);
+		Categoria cat = categoriaService.findById(cat_id);
+		obj.setCategoria(cat);
+				
+		return repository.save(obj);
 	}
 
 }
