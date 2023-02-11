@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -24,7 +23,7 @@ import com.andersondev.ebookstore.services.CategoriaService;
 
 import jakarta.validation.Valid;
 
-@CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/categorias")
 public class CategoriaResource {
@@ -40,7 +39,7 @@ public class CategoriaResource {
 		return ResponseEntity.ok().body(listDTO);
 		
 	}
-	@CrossOrigin(origins = "http://localhost:4200/")
+	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Categoria> findById(@PathVariable Long id){
 		
