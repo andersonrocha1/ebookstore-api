@@ -32,6 +32,7 @@ public class CategoriaResource {
 	private CategoriaService service;
 	
 	@GetMapping
+	@CrossOrigin(origins = "http://localhost:4200")
 	public ResponseEntity<List<CategoriaDTO>> findAll(){
 		
 		List<Categoria> list = service.findAll();
