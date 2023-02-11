@@ -23,12 +23,12 @@ public class TestConfig implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
+/*
 		Categoria cat1 = new Categoria(null, "Informática", "Livros relacionados à tecnologia");
 		Categoria cat2 = new Categoria(null, "Fantasia", "Livros sobre lendas e fantasia");
 		Categoria cat3 = new Categoria(null, "Ficçao Cientifica", "Livros sobre ficção");
 		Categoria cat4 = new Categoria(null, "Cinema", "Livros ao mudno do cinema");
-/*
+
 		Livro liv1 = new Livro(null, "Spring Boot", "Fernando Boaglio", "Acelere o desenvolvimento de microsserviços",
 				"Spring Boot é uma maneira eficiente e eficaz de criar uma aplicação em Spring, de facilmente colocá-la no ar e que funciona sem depender de um servidor de aplicação. ",
 				cat1);
@@ -42,10 +42,10 @@ public class TestConfig implements CommandLineRunner {
 		cat2.getLivros().addAll(Arrays.asList(liv2));
 		cat3.getLivros().addAll(Arrays.asList(liv3));
 		cat4.getLivros().addAll(Arrays.asList(liv4));
-	*/	
+	*	
 		this.categoriaRepository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4));
 		//this.livroRepository.saveAll(Arrays.asList(liv1, liv2, liv3, liv4));
-
+*/
 	}
 
 }

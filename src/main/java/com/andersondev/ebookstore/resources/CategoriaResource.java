@@ -24,7 +24,7 @@ import com.andersondev.ebookstore.services.CategoriaService;
 
 import jakarta.validation.Valid;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
 @RestController
 @RequestMapping(value = "/categorias")
 public class CategoriaResource {
