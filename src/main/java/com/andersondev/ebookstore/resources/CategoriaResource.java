@@ -40,7 +40,7 @@ public class CategoriaResource {
 		return ResponseEntity.ok().body(listDTO);
 		
 	}
-	
+	@CrossOrigin(origins = "http://localhost:4200/")
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Categoria> findById(@PathVariable Long id){
 		
