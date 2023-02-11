@@ -23,7 +23,7 @@ import com.andersondev.ebookstore.services.CategoriaService;
 
 import jakarta.validation.Valid;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping(value = "/categorias")
 public class CategoriaResource {
@@ -31,8 +31,7 @@ public class CategoriaResource {
 	@Autowired
 	private CategoriaService service;
 	
-	@GetMapping
-	@CrossOrigin(origins = "http://localhost:4200")
+	@GetMapping	
 	public ResponseEntity<List<CategoriaDTO>> findAll(){
 		
 		List<Categoria> list = service.findAll();
